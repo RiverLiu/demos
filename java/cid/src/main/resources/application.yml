@@ -1,0 +1,7 @@
+spring:
+  redis:
+    host: "${REDIS_HOST:localhost}"
+    port: "${REDIS_PORT:6379}"
+    password: "${REDIS_PASSWORD:YOUR_PASSWORD}"
+    database: "${REDIS_DATABASE:0}"
+    timeout: "${REDIS_TIMEOUT:15000}"

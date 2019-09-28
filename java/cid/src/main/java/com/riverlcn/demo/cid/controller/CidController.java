@@ -18,7 +18,6 @@ public class CidController {
     private CustomerIdService customerIdService;
 
 
-
     @RequestMapping(value = "/next", method = RequestMethod.GET)
     public String getNextCid() {
         return customerIdService.getNextCustomerId();

@@ -64,6 +64,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 
         /**
          * 序列化成 JsonNode 对象.
+         *
          * @see org.springframework.data.redis.serializer.RedisSerializer#deserialize(byte[])
          */
         @Override

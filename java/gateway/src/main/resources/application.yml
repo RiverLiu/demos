@@ -1,0 +1,33 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: microservice-gateway-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:password123@localhost:8761/eureka/
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+# 配置路由规则
+# 场景一：这样设置，user 微服务就会被映射到 /user/** 路径
+zuul:
+  routes:
+    user: /user/**
+  # 场景二
+  # 可以忽略的服务，只代理其他服务
+  ignored-services: microservice-provider-user,microservice-consumer-movie
+
+  # 场景三
+  # ignored-services: '*'   # 使用'*'可忽略所有微服务
+  #   routes:
+  #      microservice-provider-user: /user/**

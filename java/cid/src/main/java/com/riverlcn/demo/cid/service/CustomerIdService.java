@@ -9,6 +9,7 @@ public interface CustomerIdService {
 
     /**
      * 获取客户号
+     *
      * @return 新生成的客户号
      */
     String getNextCustomerId();

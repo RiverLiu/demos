@@ -26,7 +26,7 @@ public class CustomerIdServiceImpl implements CustomerIdService {
     private static final int CID_CACHE_COUNT = 10;
 
     private static final String cidListCacheKey = "cid:keys";
-    private static  final String cidLockKey = "cid:lock";
+    private static final String cidLockKey = "cid:lock";
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
@@ -70,13 +70,13 @@ public class CustomerIdServiceImpl implements CustomerIdService {
                 while (ids.size() < CID_CACHE_COUNT) {
                     // 获取不重复的值
                     int num = random.nextInt(CID_MAX_VALUE);
-                    String id  = String.format("%05d", num);
+                    String id = String.format("%05d", num);
                     int tries = cidSet.size();
                     while (tries > 0) {
                         if (!cidSet.contains(id)) {
                             break;
                         }
-                        num =  (num + CID_INC_MAGIC_OFFSET) % CID_MAX_VALUE;
+                        num = (num + CID_INC_MAGIC_OFFSET) % CID_MAX_VALUE;
                         id = String.format("%05d", num);
                         --tries;
                     }
@@ -95,6 +95,7 @@ public class CustomerIdServiceImpl implements CustomerIdService {
 
     /**
      * 从数据库中获取客户号列表.
+     *
      * @return 客户号列表
      */
     private List<String> getCidsFromDb() {
@@ -111,6 +112,7 @@ public class CustomerIdServiceImpl implements CustomerIdService {
 
     /**
      * 获取客户号. 内部创建使用
+     *
      * @return 新生成的客户号，后续连接的 app key， app secret
      */
     @Override
@@ -122,6 +124,7 @@ public class CustomerIdServiceImpl implements CustomerIdService {
 
     /**
      * 获取下一个客户的 cid. 如果缓存中，不存在记录，则从重新生成cid缓存.
+     *
      * @return 下一个客户的 cid.
      */
     private String getNextCid() {

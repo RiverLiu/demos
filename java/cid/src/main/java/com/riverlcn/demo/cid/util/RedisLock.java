@@ -11,7 +11,7 @@ import java.util.Random;
  * @author Liujian
  */
 public class RedisLock {
-    
+
     private RedisTemplate<String, Object> redisTemplate;
     private static final int DEFAULT_ACQUIRED_RESOLUTION_MILLIS = 100;
 
@@ -37,7 +37,7 @@ public class RedisLock {
     private Long get(final String key) {
         Object obj = redisTemplate.opsForValue().get(key);
         if (obj instanceof Long) {
-            return (Long)obj;
+            return (Long) obj;
         } else {
             return null;
         }
@@ -51,7 +51,7 @@ public class RedisLock {
     private Long getSet(final String key, final Long value) {
         Object obj = redisTemplate.opsForValue().getAndSet(key, value);
         if (obj instanceof Long) {
-            return (Long)obj;
+            return (Long) obj;
         } else {
             return null;
         }
@@ -72,7 +72,7 @@ public class RedisLock {
         int timeout = waitTimeout;
         Random random = new Random();
         while (timeout >= 0) {
-            
+
             // 获取锁，如果使用 setNx 可以得到锁，则认为锁定
             Long expire = System.currentTimeMillis() + expireTimeout + 1;
             if (setNX(lockKey, expire)) {

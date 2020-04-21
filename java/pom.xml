@@ -28,12 +28,8 @@
 
   <modules>
     <module>cid</module>
-    <module>config</module>
-    <module>discovery</module>
-    <module>gateway</module>
-    <module>book</module>
-    <module>user</module>
-    <module>movie</module>
+    <module>rt</module>
+    <module>spring-cloud</module>
   </modules>
 
   <dependencyManagement>

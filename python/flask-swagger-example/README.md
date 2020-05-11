@@ -166,7 +166,7 @@ def spec():
 
 `swagger-ui` 项目包含静态的页面，为了方便，我们将静态页面，放到 flask 项目的静态页面中，如下图所示。
 
-![img](https://riverlcn.oss-cn-hangzhou.aliyuncs.com/py/flask_swagger_loc.png)
+![img](./flask_swagger_loc.png)
 
 修改 `swagger index.html`中默认的URL `https://petstore.swagger.io/v2/swagger.json` 改成通过 flask 传入的地址 `{{ url }}`，这样做的目的是，我们可以在配置或者业务中，动态修改URL, 如下。
 
@@ -194,7 +194,7 @@ def swagger_index():
 
 最终的效果如下所示
 
-![img](https://riverlcn.oss-cn-hangzhou.aliyuncs.com/py/flask_swagger_web.png))
+![img](./flask_swagger_web.png)
 
 完整的代码示例，可通过 https://github.com/RiverLiu/demos/tree/master/python/flask-swagger-example 下载.
 
